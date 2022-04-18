@@ -21,14 +21,14 @@ void insertionSort()
     {
         x = V[i];
         int j;
-        printf("x: %d V[j-1]: %d\n", x, V[i-1]);
+        //printf("x: %d V[j-1]: %d\n", x, V[i-1]);
         for (j = i; j > 0 && x < V[j - 1]; j--)
         {
             V[j] = V[j - 1];
             
         }
         V[j] = x;
-        printArray();
+        //printArray();
         
     }
 }
