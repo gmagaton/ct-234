@@ -42,9 +42,47 @@ void siftRecursivo(int i, int n)
     }
 }
 
+void siftIterativo(int i, int n)
+{
+    int m, l, r;
+    m = i;
+
+    do
+    {
+        if(m != i){
+            i = m;
+        }
+        l = (2 * i) + 1; // filho a esquerda
+        r = (2 * i) + 2; // filho a direita
+        // m = i;
+
+        // verifica se o filho a esquerda é maior que a raiz
+        if (l <= n && V[l] > V[m])
+        {
+
+            m = l;
+        }
+        // verifica se o filho direito é maior que a raiz ou que o esquerdo
+        if (r <= n && V[r] > V[m])
+        {
+
+            m = r;
+        }
+
+        // se encontrou maior, troca
+        if (m != i)
+        {
+            int aux = V[i];
+            V[i] = V[m];
+            V[m] = aux;
+        }
+    } while (m != i);
+}
+
 void sift(int i, int n)
 {
-    siftRecursivo(i, n);
+    //siftRecursivo(i, n);
+    siftIterativo(i, n);
 }
 
 void build(int n)
