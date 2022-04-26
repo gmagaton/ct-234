@@ -13,41 +13,28 @@ void printArray(int max)
 
 void sift(int i, int n)
 {
-    int m, l, r;
-    m = i;
-
-    do
+    int j = i;
+    while (2 * j + 1 <= n)
     {
-        if(m != i){
-            i = m;
-        }
-        l = (2 * i) + 1; // filho a esquerda
-        r = (2 * i) + 2; // filho a direita
-        // m = i;
-
+        int f = 2 * j + 1;
         // verifica se o filho a esquerda é maior que a raiz
-        if (l <= n && V[l] > V[m])
+        if (f <= n && V[f] < V[f + 1])
         {
-
-            m = l;
+            f = f + 1;
         }
         // verifica se o filho direito é maior que a raiz ou que o esquerdo
-        if (r <= n && V[r] > V[m])
+        if (V[j] >= V[f])
         {
-
-            m = r;
+            j = n;
         }
-
-        // se encontrou maior, troca
-        if (m != i)
+        else
         {
-            int aux = V[i];
-            V[i] = V[m];
-            V[m] = aux;
+            int aux = V[j];
+            V[j] = V[f];
+            V[f] = aux;
         }
-    } while (m != i);
+    }
 }
-
 
 void build(int n)
 {

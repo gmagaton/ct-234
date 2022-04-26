@@ -6,7 +6,7 @@ void printArray(int max)
 {
     for (int i = 0; i < max; i++)
     {
-        printf("%d ", V[i]);
+        printf("%d, ", V[i]);
     }
     printf("\n");
 }
@@ -57,13 +57,13 @@ void siftIterativo(int i, int n)
         // m = i;
 
         // verifica se o filho a esquerda é maior que a raiz
-        if (l <= n && V[l] > V[m])
+        if (l <= n && V[l] < V[m])
         {
 
             m = l;
         }
         // verifica se o filho direito é maior que a raiz ou que o esquerdo
-        if (r <= n && V[r] > V[m])
+        if (r <= n && V[r] < V[m])
         {
 
             m = r;
@@ -97,7 +97,7 @@ void build(int n)
 void heapsort(int n)
 {
     build(n);
-    printArray(n);
+    //printArray(n);
     for (int i = n - 1; i > 0; i--)
     {
         int aux = V[i];
