@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int N = 20;
-int V[] = {8, 5, 3, 9, 21, 22, 88, 75, 66, 45, 17, -100, 23, -3, 12, 20, -20, 30, 28, 32};
+int N = 7;
+int V[] = {2, 3, 6, 10, 5, 3, 4};
 
 void printArray()
 {
@@ -49,7 +49,7 @@ void quickSort(int min, int max)
 int main()
 {
     printArray();
-    quickSort(0, 19);
+    quickSort(0, 6);
     printArray();
     return 0;
 }
