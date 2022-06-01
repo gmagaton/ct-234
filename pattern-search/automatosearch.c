@@ -1,5 +1,3 @@
-// C program for Finite Automata Pattern searching
-// Algorithm
 #include <stdio.h>
 #include <string.h>
 #define NO_OF_CHARS 256
@@ -38,8 +36,6 @@ int getNextState(char *pat, int M, int state, int x)
     return 0;
 }
 
-/* This function builds the TF table which represents4
-    Finite Automata for a given pattern */
 void computeTF(char *pat, int M, int TF[][NO_OF_CHARS])
 {
     int state, x;
@@ -50,7 +46,6 @@ void computeTF(char *pat, int M, int TF[][NO_OF_CHARS])
     printAF(TF, M);
 }
 
-/* Prints all occurrences of pat in txt */
 void search(char *pat, char *txt)
 {
     int M = strlen(pat);
