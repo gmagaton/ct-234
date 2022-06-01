@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <string.h>
-#define NO_OF_CHARS 256
 
-void printAF(int TF[][NO_OF_CHARS], int M)
+void printAF(int TF[][3], int M)
 {
     for (int i = 0; i < M; i++)
     {
-        for (int j = 0; j < NO_OF_CHARS; j++)
+        for (int j = 97; j <= 99; j++)
         {
             if (TF[i][j] != 0)
                 printf("AF [%d][%c] = %d\n", i, j, TF[i][j]);
@@ -14,48 +13,32 @@ void printAF(int TF[][NO_OF_CHARS], int M)
     }
 }
 
-int getNextState(char *pat, int M, int state, int x)
+void AFContruct(char *pat, int M, int TF[][3])
 {
-    if (state < M && x == pat[state])
-        return state + 1;
-
-    int ns, i;
-
-    for (ns = state; ns > 0; ns--)
-    {
-        if (pat[ns - 1] == x)
-        {
-            for (i = 0; i < ns - 1; i++)
-                if (pat[i] != pat[state - ns + 1 + i])
-                    break;
-            if (i == ns - 1)
-                return ns;
-        }
-    }
-
-    return 0;
-}
-
-void computeTF(char *pat, int M, int TF[][NO_OF_CHARS])
-{
-    int state, x;
+    int state, x, k;
     for (state = 0; state <= M; ++state)
-        for (x = 0; x < NO_OF_CHARS; ++x)
-            TF[state][x] = getNextState(pat, M, state, x);
+        for (x = 97; x <= 99; ++x)
+        {
+            k = state + 2 <= M + 1 ? state + 2 : M + 1;
+            do
+            {
+                k--;
+            } while (pat[k - 1] == pat[state - 1]);
+            TF[state][x] = k;
+        }
 
     printAF(TF, M);
 }
 
-void search(char *pat, char *txt)
+void AFMatch(char *pat, char *txt)
 {
     int M = strlen(pat);
     int N = strlen(txt);
 
-    int TF[M + 1][NO_OF_CHARS];
+    int TF[M + 1][3];
 
-    computeTF(pat, M, TF);
+    AFContruct(pat, M, TF);
 
-    // Process txt over FA.
     int i, state = 0;
     for (i = 0; i < N; i++)
     {
@@ -70,6 +53,6 @@ int main()
 {
     char *txt = "abababacaba";
     char *pat = "bacabacb";
-    search(pat, txt);
+    AFMatch(pat, txt);
     return 0;
 }
