@@ -43,6 +43,7 @@ int kmp(char *t, char *p)
     while (i < N)
     {
         count++;
+        printf("Comparando %c com %c i=%d j=%d comp=%d\n", t[i], p[j], i, j, count);
         if (t[i] == p[j])
         {
             if (j == M - 1)
@@ -72,8 +73,8 @@ int kmp(char *t, char *p)
 
 int main()
 {
-    char t[] = "Faturei com folga na prova de complexidade de algoritmos";
-    char p[] = "algo";
+    char t[] = "Vi na mata uma arara e duas aranhas";
+    char p[] = "araras";
     int i = kmp(t, p);
 
     printf("Palavra %s encontrada no indice %d com %d comparações", p, i, count);
