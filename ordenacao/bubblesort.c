@@ -19,20 +19,17 @@ void bubbleSort()
     int c = 0;
     for (int i = 1; i < N; i++)
     {
-        // printf("I: %d\n", i);
         for (int j = 0; j < N - i; j++)
         {
             c++;
             if (V[j] > V[j + 1])
             {
-                // printf("Tocando %d com %d j:%d N:%d\n", V[j], V[j + 1], j, N);
                 int x = V[j];
                 V[j] = V[j + 1];
                 V[j + 1] = x;
             }
         }
     }
-    printf("%d comparações\n", c);
 }
 
 int main()
