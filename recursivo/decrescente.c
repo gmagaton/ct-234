@@ -2,10 +2,10 @@
 
 void decrescente(int n)
 {
-    printf("%d\n", n);
+    printf("%d ", n);
     if (n == 1)
     {
-        printf("%d\n", 1);
+        printf("%d ", 1);
         return;
     }
     decrescente(n - 1);

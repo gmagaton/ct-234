@@ -32,7 +32,6 @@ void selectionSort()
         V[min] = V[i];
         V[i] = x;
     }
-    printf("%d comparações\n", c);
 }
 
 int main()

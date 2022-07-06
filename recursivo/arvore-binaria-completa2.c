@@ -53,7 +53,7 @@ struct TreeNode *construct()
     struct TreeNode *node4 = newTreeNode(4);
     struct TreeNode *node5 = newTreeNode(5);
     struct TreeNode *node6 = newTreeNode(6);
-    struct TreeNode *node7 = newTreeNode(7);
+    //struct TreeNode *node7 = newTreeNode(7);
 
     // up
     node1->up = node2;
@@ -61,7 +61,7 @@ struct TreeNode *construct()
     node3->up = node2;
     node5->up = node6;
     node6->up = node4;
-    node7->up = node6;
+    //node7->up = node6;
 
     // left
     node4->left = node2;
@@ -71,7 +71,7 @@ struct TreeNode *construct()
     // right
     node2->right = node3;
     node4->right = node6;
-    node6->right = node7;
+    //node6->right = node7;
 
     return node4;
 }

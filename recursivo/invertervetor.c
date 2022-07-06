@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int v[] = {10, 50, 43, 87, 33, 23, 12, 34, 76};
-int n = 9;
+int v[] = {10, 50, 43, 87, 33, 23, 12, 34, 76, 3};
+int n = 10;
 
 void inverterVetor(int i, int f)
 {

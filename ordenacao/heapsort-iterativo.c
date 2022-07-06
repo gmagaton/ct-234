@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int V[] = {-100, 23, -3, 12, 20, -20, 30, 28, 32};
+int V[] = {6,9,15,0,-7,9,4};
 
 void printArray(int max)
 {
@@ -42,13 +42,15 @@ void build(int n)
     for (int i = (n - 1) / 2; i >= 0; i--)
     {
         sift(i, n);
+        printArray(n);
     }
+    printf("build pronto\n");
 }
 
 void heapsort(int n)
 {
     build(n);
-    printArray(n);
+    
     for (int i = n - 1; i > 0; i--)
     {
         int aux = V[i];
@@ -56,6 +58,7 @@ void heapsort(int n)
         V[0] = aux;
 
         sift(0, i - 1);
+        printArray(n);
     }
 }
 
@@ -65,6 +68,7 @@ int main()
     printf("N = %d\n", N);
     printArray(N);
     heapsort(N);
+    printf("Pronto\n");
     printArray(N);
     return 0;
 }
